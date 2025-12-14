@@ -19,7 +19,7 @@ import time
 def main():
     print("Starting Twitter scraper...")
 
-    # ✅ Chrome options (attach to logged-in profile)
+    # Chrome options 
     options = Options()
     options.add_argument("--start-maximized")
 
@@ -28,10 +28,9 @@ def main():
     )
     options.add_argument("--profile-directory=Profile 2")
 
-    # ❌ remove detach (can cause issues)
-    # options.add_experimental_option("detach", True)
+    
 
-    # ✅ Use webdriver-manager (VERY IMPORTANT)
+    # Use webdriver-manager 
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
 
@@ -66,7 +65,7 @@ def main():
 
     print(f"Saved Parquet file: {file_path}")
 
-    # 🛡️ Prevent vectorizer crash
+    # Prevent vectorizer crash
     if not processed:
         print("No tweets collected. Exiting safely.")
         driver.quit()
